@@ -1,0 +1,12 @@
+.travel_content{
+    width: 30%;
+    border-right: 2px solid red;
+    float: left;
+}
+.travel_Img{
+    width: 60%;
+    float: right;
+}
+.parent{
+    margin-top: 150px;
+}

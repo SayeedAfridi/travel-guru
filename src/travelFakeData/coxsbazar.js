@@ -1,0 +1,3 @@
+var coxsbazar = [{"id": "1", "category":"coxsbazar", "name":"COX'S BAZAR", "title":"Cox's Bazar is a city, fishing port, tourism centre and district headquarters in southeastern Bangladesh. It is famous mostly for its long natural sandy beach, and it is infamous for the largest refugee camp in the world. It is located 150 km (93 mi) south of the divisional headquarter city of Chittagong. Cox's Bazar is also known by the name Panowa, which translates literally as yellow flower. Another old name was Palongkee","image":"https://i.ibb.co/Hz3Q0fV/Coxs-Bazar.png"}];
+
+export default coxsbazar;

@@ -1,0 +1,50 @@
+.booking_details{
+    background-image: url(../../Image/background.png);
+    background-size: cover;
+    height: 700px;
+    color: white;
+}
+.backgound_opacity{
+    background: black;
+    opacity: 0.6;
+    height: 700px;
+}
+.text_control{
+    margin-top: 200px;
+}
+.destination_box{
+    height: 320px;
+    width: 400px;
+    margin-top: 150px;
+    margin-left: 140px;
+    border-radius: 10px;
+    background-color:white;
+}
+.destination_box p{
+    color: black;
+    font-size: 17px;
+    padding-top:20px;
+    padding-left: 20px;
+}
+.destination_box .text_filid{
+    margin-left: 20px;
+    background-color: black;
+    width: 90%;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+}
+.form input{
+    width: 42%;
+    padding: 5px 3px;
+    margin-left: 21px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+}
+.booking_button{
+    width: 90%;
+    margin-right: 20px;
+    margin-top: 0;
+
+}
