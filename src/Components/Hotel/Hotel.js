@@ -4,10 +4,14 @@ import hotel1 from '../../Image/Rectangle 26.png';
 import hotel2 from '../../Image/Rectangle 27.png';
 import hotel3 from '../../Image/Rectangle 28.png';
 import starIcon from '../../Image/Icon/star_1_.png';
+import Header from '../Header/Header';
 
 const Hotel = () => {
     return (
         <div className="container">
+                <div className="bg-dark">
+                <Header></Header>
+                </div>
             <small>252 stays april 13 17 3 guests</small>
             <h3>Stay In Cox's Bazar</h3>
             <div className="row">
@@ -25,10 +29,10 @@ const Hotel = () => {
                                 <h5>$34/</h5><small className="my-1">night $167 total</small>
                             </div>
                         </div>
-                   </div>
+                    </div>
                 </div>
             </div>
-            <br/><br/>
+            <br /><br />
             <div className="row">
                 <div className="col-md-6">
                     <div className="row images">
@@ -44,10 +48,10 @@ const Hotel = () => {
                                 <h5>$34/</h5><small className="my-1">night $167 total</small>
                             </div>
                         </div>
-                   </div>
+                    </div>
                 </div>
             </div>
-            <br/><br/>
+            <br /><br />
             <div className="row">
                 <div className="col-md-6">
                     <div className="row images">
@@ -63,12 +67,8 @@ const Hotel = () => {
                                 <h5>$34/</h5><small className="my-1">night $167 total</small>
                             </div>
                         </div>
-                   </div>
+                    </div>
                 </div>
-            </div>
-
-            <div className="maps">
-                hei this is me
             </div>
         </div>
     );

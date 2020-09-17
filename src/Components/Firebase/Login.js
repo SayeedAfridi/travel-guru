@@ -7,6 +7,7 @@ import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
+import Header from '../Header/Header';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -127,8 +128,11 @@ const Login = () => {
     }
     
     return (
+        <>
+        <div className="bg-dark">
+        <Header></Header>
+        </div>
         <div className="form_section">
-
             <h3 className="title">Login</h3>
             <form onSubmit={handleSubmit}>
                 <br />
@@ -154,7 +158,7 @@ const Login = () => {
                 <span className="ChekBox_text"><label htmlFor="NewUser">Create an account</label></span>
             </div>
 
-            <p style={{ color: 'red', marginLeft: '30px' }}>{user.error}</p>
+            <p style={{ color: 'red', marginLeft: '50px' }}>{user.error}</p>
             {
                 user.success && <p style={{ color: 'green', marginLeft: '30px' }}>user {createUser ? 'created' : 'Logged In Successfully'}</p>
             }
@@ -170,6 +174,7 @@ const Login = () => {
                 <button onClick={googleSignIn}  className="auto_login"><img src={google} alt=""/>Continue With Google</button>
             </div>
         </div>
+        </>
     );
 };
 

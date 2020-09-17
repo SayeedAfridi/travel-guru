@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
 import './Booking.css';
 const BookingDetails = (props) => {
     const { name, title, image, id } = props.travelData;
@@ -7,6 +8,7 @@ const BookingDetails = (props) => {
         <div className="booking_details">
             <div className="backgound_opacity">
                 <div className="container">
+                <Header></Header>
                     <div className="row ">
                         <div className="col-md-6 text_control">
                             <h1>{name}</h1>
@@ -20,6 +22,10 @@ const BookingDetails = (props) => {
                                <br/>
                                <p>Destination</p>
                                <input className="text_filid" type="text" required />
+                               <div className="d-flex justify-content-between text-dark">
+                                   <div className="mx-3">From</div>
+                                   <div className="mx-3">To</div>
+                               </div>
                                <div className="form d-flex my-3">
                                    <input type="date" required />
                                    <input type="date"  required />

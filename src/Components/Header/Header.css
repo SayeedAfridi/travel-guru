@@ -6,6 +6,7 @@ header{
     float: left;
     margin-top: 10px;
     background-color: white;
+    border-radius: 10px;
 }
 .search_fild input{
     padding: 5px 30px;
