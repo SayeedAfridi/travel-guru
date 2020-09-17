@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {
@@ -9,14 +9,18 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home/Home';
 import Booking from './Components/Booking/Booking';
-import Header from './Components/Header/Header';
 import NotFunds from './Components/NotFunds/NotFunds';
 import Hotel from './Components/Hotel/Hotel';
+import Login from './Components/Firebase/Login';
 
+// export const userContext = createContext();
 
 function App() {
+  // const [loggedInUser, setLoggedInUser] = useState({});
+  // userContext.provider value={[loggedInUser, setLoggedInUser]}
   return (
-    <div className="App">
+    
+    <>
       <Router>
         <Switch>
           <Route path="/news">
@@ -40,10 +44,13 @@ function App() {
           <Route path="/hotel:hotelid">
             <Hotel></Hotel>
           </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
         </Switch>
       </Router>
       
-    </div>
+    </>
   );
 }
 

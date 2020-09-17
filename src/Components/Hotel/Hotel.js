@@ -33,7 +33,7 @@ const Hotel = () => {
                 <div className="col-md-6">
                     <div className="row images">
                         <div className="col-md-6">
-                            <img src={hotel1} alt="" />
+                            <img src={hotel2} alt="" />
                         </div>
                         <div className="col-md-6 star_Icon">
                             <h5>Light bright airy stylesh apt & safe pecefull stay</h5>
@@ -52,7 +52,7 @@ const Hotel = () => {
                 <div className="col-md-6">
                     <div className="row images">
                         <div className="col-md-6">
-                            <img src={hotel1} alt="" />
+                            <img src={hotel3} alt="" />
                         </div>
                         <div className="col-md-6 star_Icon">
                             <h5>Light bright airy stylesh apt & safe pecefull stay</h5>
