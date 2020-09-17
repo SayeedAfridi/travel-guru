@@ -1,6 +1,4 @@
 import React, { createContext, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,15 +10,15 @@ import Booking from './Components/Booking/Booking';
 import NotFunds from './Components/NotFunds/NotFunds';
 import Hotel from './Components/Hotel/Hotel';
 import Login from './Components/Firebase/Login';
+import Header from './Components/Header/Header';
+import PrivetRoute from './Components/PrivetRoute/PrivetRoute';
 
-// export const userContext = createContext();
+export const UserContext = createContext();
 
 function App() {
-  // const [loggedInUser, setLoggedInUser] = useState({});
-  // userContext.provider value={[loggedInUser, setLoggedInUser]}
+  const [logUser, setLogUser] = useState({});
   return (
-    
-    <>
+    <UserContext.Provider value={[logUser, setLogUser]}>
       <Router>
         <Switch>
           <Route path="/news">
@@ -41,16 +39,16 @@ function App() {
           <Route path="/booking:bookingid">
             <Booking></Booking>
           </Route>
-          <Route path="/hotel:hotelid">
+          <PrivetRoute path="/hotel:hotelid">
             <Hotel></Hotel>
-          </Route>
+          </PrivetRoute>
           <Route path="/login">
             <Login></Login>
           </Route>
         </Switch>
       </Router>
       
-    </>
+    </UserContext.Provider>
   );
 }
 

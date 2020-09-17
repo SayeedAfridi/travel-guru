@@ -5,12 +5,17 @@ import google from '../../Image/Icon/google.png';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
-import {userContext} from '../../App';
+import { UserContext } from '../../App';
+import { useHistory, useLocation } from 'react-router-dom';
 
 firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
-    // const [loggedInUser, setLoggedInUser] = useContext(userContext);
+    const [logUser, setLogUser] = useContext(UserContext);
+    const history = useHistory();
+    const location = useLocation();
+  
+    const { from } = location.state || { from: { pathname: "/" } };
 
     const [createUser, setCreateUser] = useState(false);
     const [user, setUser] = useState({
@@ -45,6 +50,8 @@ const Login = () => {
                     errorWroning.error = '';
                     errorWroning.success = true;
                     setUser(errorWroning);
+                    
+
                 })
                 .catch(error => {
                     // Handle Errors here.
@@ -62,7 +69,8 @@ const Login = () => {
                     errorWroning.error = '';
                     errorWroning.success = true;
                     setUser(errorWroning);
-                    
+                    setLogUser(errorWroning);
+                    history.replace(from);
                 })
                 .catch(error => {
                     // Handle Errors here.
@@ -72,6 +80,7 @@ const Login = () => {
                     setUser(errorWroning);
                 });
         }
+     
         e.preventDefault();
     }
 
@@ -81,7 +90,10 @@ const Login = () => {
     const googleSignIn= () => {
         firebase.auth().signInWithPopup(googleprovider)
         .then(res => {
-        //  setLoggedInUser(res)
+            const {displayName, email} = res.user;
+            const NewUser = {name: displayName, email}
+            setLogUser(NewUser);
+            history.replace(from)
         })
         .catch(error => {
             // Handle Errors here.
@@ -99,7 +111,10 @@ const Login = () => {
     const fbSignIn = () => {
         firebase.auth().signInWithPopup(FbProvider)
         .then(res => {
-            // console.log(res);
+            const {displayName, email} = res.user;
+            const NewUser = {name: displayName, email}
+            setLogUser(NewUser);
+            history.replace(from)
           })
           .catch(function(error) {
             // Handle Errors here.
@@ -129,7 +144,7 @@ const Login = () => {
                     <input type="password" name="password" onBlur={handleOnBlur} placeholder="Password" required />
                 </div>
                 <br />
-                {createUser && <input className="Swich_form" type="text" name="name" onBlur={handleOnBlur} placeholder="Confrim password" required />}
+                {createUser && <input className="Swich_form" type="password" name="name" onBlur={handleOnBlur} placeholder="Confrim password" required />}
                 <br />
                 <input className="Submit_controll" type="submit" value={createUser ? "Sign up" : "Login"} />
             </form>

@@ -67,8 +67,8 @@ const Hotel = () => {
                 </div>
             </div>
 
-            <div className="div maps">
-
+            <div className="maps">
+                hei this is me
             </div>
         </div>
     );
