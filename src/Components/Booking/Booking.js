@@ -6,17 +6,16 @@ import BookingDetails from './BookingDetails';
 
 const Booking = () => {
     const {bookingid} = useParams();
-    const [travleInfos, setTravelInfos] = useState([]);
+    const [travleInfo, setTravelInfos] = useState(null);
+    
     useEffect( () => {
-        const travelInfo = travelFakeData.filter(td => td.id === bookingid)
+        const travelInfo = travelFakeData.find(td => td.id === bookingid)
         setTravelInfos(travelInfo)
     }, [])  
 
     return (
         <div>
-            {
-                travleInfos.map(travelData => <BookingDetails travelData={travelData}></BookingDetails>)
-            }
+           {travleInfo && <BookingDetails travelData={travleInfo} />}
         </div>
     );
 };

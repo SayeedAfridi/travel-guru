@@ -8,7 +8,7 @@ const ExjectTravelContent = (props) => {
         <div className="content">
             <h1>{name}</h1>
             <p>{title}</p>
-            <Link to={`/booking${id}`}>
+            <Link to={`/booking/${id}`}>
             <button className="all_button"> Booking → </button>
             </Link>
         </div>

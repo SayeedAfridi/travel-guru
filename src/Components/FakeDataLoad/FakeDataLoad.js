@@ -6,20 +6,16 @@ import ExjectTravelContent from '../ExjectTravelContent/ExjectTravelContent';
 
 const FakeDataLoad = () => {
     const [travelData, setTravelData] = useState(travelFakeData);
-    const [travelInfo, setTravelInfo] = useState([]);
+    const [travelInfo, setTravelInfo] = useState(null);
 
     const handleShowData = (data) => {
-        const newTravelInfo = [...travelInfo, data];
-        setTravelInfo(newTravelInfo);
-        console.log('click');
+        setTravelInfo(data);
     }
     console.log(travelInfo);
     return (
         <div className="container parent">
             <div className="travel_content">
-              {
-                  travelInfo.map((travleInfos => <ExjectTravelContent travleInfos={travleInfos}></ExjectTravelContent>))
-              }
+                 {travelInfo && <ExjectTravelContent travleInfos={travelInfo} />}
             </div>
 
             <div className="travel_Img row">

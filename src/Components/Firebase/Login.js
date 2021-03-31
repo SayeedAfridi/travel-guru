@@ -2,14 +2,13 @@ import React, { useContext, useState } from 'react';
 import './Login.css';
 import fbIcon from '../../Image/Icon/fb.png';
 import google from '../../Image/Icon/google.png';
-import * as firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from './firebase.config';
+import firebase, {auth} from './firebase'
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 
-firebase.initializeApp(firebaseConfig);
+
 
 const Login = () => {
     const [logUser, setLogUser] = useContext(UserContext);
@@ -43,53 +42,36 @@ const Login = () => {
     };
 
     const handleSubmit = (e) => {
+        e.preventDefault();
         if (createUser && user.email && user.password) {
             alert('are you sure');
-            firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+            auth.createUserWithEmailAndPassword(user.email, user.password)
                 .then(res => {
-                    const errorWroning = { ...user };
-                    errorWroning.error = '';
-                    errorWroning.success = true;
-                    setUser(errorWroning);
-                    
-
+                    setUser(res.user);
+                    setLogUser(res.user);
+                    history.replace(from);
                 })
                 .catch(error => {
-                    // Handle Errors here.
-                    const errorWroning = { ...user };
-                    errorWroning.error = error.message;
-                    errorWroning.success = false;
-                    setUser(errorWroning);
                 });
         }
         if (!createUser && user.email && user.password) {
             alert('Are you sure?');
-            firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+            auth.signInWithEmailAndPassword(user.email, user.password)
                 .then(res => {
-                    const errorWroning = { ...user };
-                    errorWroning.error = '';
-                    errorWroning.success = true;
-                    setUser(errorWroning);
-                    setLogUser(errorWroning);
+                    setUser(res.user);
+                    setLogUser(res.user);
                     history.replace(from);
                 })
                 .catch(error => {
-                    // Handle Errors here.
-                    const errorWroning = { ...user };
-                    errorWroning.error = error.message;
-                    errorWroning.success = false;
-                    setUser(errorWroning);
                 });
         }
-     
-        e.preventDefault();
     }
 
     // google sign in 
     const googleprovider = new firebase.auth.GoogleAuthProvider();
 
     const googleSignIn= () => {
-        firebase.auth().signInWithPopup(googleprovider)
+        auth.signInWithPopup(googleprovider)
         .then(res => {
             const {displayName, email} = res.user;
             const NewUser = {name: displayName, email}
@@ -110,7 +92,7 @@ const Login = () => {
 
     const FbProvider = new firebase.auth.FacebookAuthProvider();
     const fbSignIn = () => {
-        firebase.auth().signInWithPopup(FbProvider)
+        auth.signInWithPopup(FbProvider)
         .then(res => {
             const {displayName, email} = res.user;
             const NewUser = {name: displayName, email}

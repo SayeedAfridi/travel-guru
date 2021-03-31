@@ -21,7 +21,7 @@ const Header = () => {
                     <a href="/blog">Blog</a>
                     <a href="/contact">Contact</a>
                 </div>
-                <button className="all_button">Login</button>
+                <button className="all_button"><a href='/login'>Login</a></button>
             </nav>
         </header>
     );
